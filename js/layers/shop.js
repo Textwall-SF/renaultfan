@@ -31,7 +31,15 @@ addLayer("ts", {
 		cost: new Decimal(1e17),
 		currencyDisplayName: "Cz.",
         currencyInternalName: "points",
-		unlocked() { return (hasUpgrade('cz',34))}
+		unlocked() { return hasUpgrade('cz',34); }
+	  },
+	  22: {
+		title: "Advanced Upgrade #2",
+		description: "^1.1 Cz.",
+		cost: new Decimal(1e18),
+		currencyDisplayName: "Cz.",
+        currencyInternalName: "points",
+		unlocked() { return hasUpgrade('cz',34); }
 	  }
     }
 })
