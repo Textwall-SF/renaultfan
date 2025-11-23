@@ -16,6 +16,66 @@ addLayer("cz", {
         cost: new Decimal(0),
         currencyDisplayName: "Cz.",
         currencyInternalName: "points"
-      }
+      },
+	  12: {
+        title: "Infrared.",
+        description: "2 Cz. per second.",
+        cost: new Decimal(10),
+        currencyDisplayName: "Cz.",
+        currencyInternalName: "points",
+		unlocked() { return hasUpgrade("cz", 11); },
+	  },
+	  13: {
+        title: "Textures.",
+        description: "6 Cz. per second.",
+        cost: new Decimal(40),
+        currencyDisplayName: "Cz.",
+        currencyInternalName: "points",
+		unlocked() { return hasUpgrade("cz", 12); },
+	  },
+	  14: {
+        title: "Glitching....",
+        description: "x3.5 Cz. per second.",
+        cost: new Decimal(200),
+        currencyDisplayName: "Cz.",
+        currencyInternalName: "points",
+		unlocked() { return hasUpgrade("cz", 13); },
+	  },
+	  21: {
+        title: "Getting more CRAZIER",
+        description: "Gain Cz. Too many Cz.",
+		effect() {
+            return player.points.add(1).pow(0.2)
+        },
+        effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
+        cost: new Decimal(1500),
+        currencyDisplayName: "Cz.",
+        currencyInternalName: "points",
+		unlocked() { return hasUpgrade("cz", 14); },
+	  },
+	  22: {
+        title: "TOO MUCH CZ",
+        description: "x10 Cz. per second.",
+        cost: new Decimal(10000),
+        currencyDisplayName: "Cz.",
+        currencyInternalName: "points",
+		unlocked() { return hasUpgrade("cz", 21); },
+	  },
+	  23: {
+        title: "???",
+        description: "^1.05 Cz.",
+        cost: new Decimal(2e5),
+        currencyDisplayName: "Cz.",
+        currencyInternalName: "points",
+		unlocked() { return hasUpgrade("cz", 22); },
+	  },
+	  24: {
+        title: "System Center?",
+        description: "Unlock Miletones. 4DC_H grand opening!",
+        cost: new Decimal(1e8),
+        currencyDisplayName: "Cz.",
+        currencyInternalName: "points",
+		unlocked() { return hasUpgrade("cz", 23); },
+	  },
     }
 })
