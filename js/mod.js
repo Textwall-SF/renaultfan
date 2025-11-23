@@ -2,7 +2,7 @@ let modInfo = {
 	name: "cz. : the tree",
 	author: "ReanultFan Auth.",
 	pointsName: "craziness points",
-	modFiles: ["layers/cz.js", "tree.js"],
+	modFiles: ["layers/cz.js", "layers/system_center.js", "tree.js"],
 
 	discordName: "",
 	discordLink: "",
@@ -41,13 +41,19 @@ function getPointGen() {
 		return new Decimal(0)
 
 	let gain = new Decimal(0)
+	// Cz.
 	if (hasUpgrade('cz', 11)) gain = gain.add(1)
 	if (hasUpgrade('cz', 12)) gain = gain.add(2)
 	if (hasUpgrade('cz', 13)) gain = gain.add(6)
 	if (hasUpgrade('cz', 14)) gain = gain.times(3.5)
-	if (hasUpgrade('cz', 21)) gain = gain.times(upgradeEffect("cz",21))
+	if (hasUpgrade('cz', 21)) gain = gain.times(upgradeEffect('cz',21))
 	if (hasUpgrade('cz', 22)) gain = gain.times(10)
 	if (hasUpgrade('cz', 23)) gain = gain.pow(1.05)
+	if (hasUpgrade('cz', 31)) gain = gain.times(5)
+	if (hasUpgrade('cz', 32)) gain = gain.times(2.001)
+	if (hasUpgrade('cz', 33)) gain = gain.times(upgradeEffect('cz',33))
+	// System Center
+	if (hasMilestone('sy', 1)) gain = gain.pow(1.2)
 	return gain
 }
 
@@ -57,12 +63,16 @@ function addedPlayerData() { return {
 
 // Display extra things at the top of the page
 var displayThings = [
-	if (player.points.gte(2.82e57)) {
-			"Well... come"
-    },
-	if ((player.points.lte(2.37e52)) && (player.points.gte(6.68e59))) {
-			"If every Cz. was a planck volume, then you can make " + player.points.div(new Decimal(6.68e59))) + " protons."
+	function() {
+    display = ""
+	if ((player.points.lte(6.68e59)) && (player.points.gte(1e25))) {
+			display = display + "Tip: Stuck? Buy upgrades."
     }
+	if ((player.points.lte(2.37e62)) && (player.points.gte(6.68e59))) {
+			display = display + "If every Cz. was a planck volume, then you can make " + player.points.div(new Decimal(6.68e59))) + " protons."
+    }
+	return display
+  }
 ]
 
 // Determines when the game "ends"
