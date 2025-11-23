@@ -7,11 +7,10 @@ addLayer("ts", {
 		points: new Decimal(0),
     }},
     color: "#11ff11",
-	  tooltip: "Shop",
     row: 0, // Row the layer is in on the tree (0 is the first row)
     layerShown(){
         let visible = false
-        if (hasMilestone('sy', 1) || player.ts.unlocked) visible = true
+        if (hasMilestone('sy', 3) || player.ts.unlocked) visible = true
        return visible
     },
     upgrades: {
@@ -25,6 +24,14 @@ addLayer("ts", {
             return player.points.add(1).pow(0.5)
         },
         effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
-	    },
+	  },
+	  21: {
+		title: "Advanced Upgrade #1",
+		description: "x16 Cz.",
+		cost: new Decimal(1e17),
+		currencyDisplayName: "Cz.",
+        currencyInternalName: "points",
+		unlocked() { return (hasUpgrade('cz',34))}
+	  }
     }
 })
