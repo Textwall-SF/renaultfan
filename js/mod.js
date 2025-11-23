@@ -77,8 +77,17 @@ var displayThings = [
 			display = display + "Stuck?"
     }
 	if ((player.points.lte(2.37e62)) && (player.points.gte(6.68e59))) {
-			display = display + "If every Cz. was a planck volume, then you can make " + player.points.div(new Decimal(6.68e59))) + " protons."
+			display = display + "If every Cz. was a planck volume, then you can make " + player.points.div(new Decimal(6.68e59)) + " protons."
     }
+	if ((player.points.lte(1.71e75)) && (player.points.gte(2.37e62))) {
+			display = display + "If every Cz. was a planck volume, then you can make " + player.points.div(new Decimal(2.37e62)) + " nuclei."
+	}
+	if ((player.points.lte(1.18e84)) && (player.points.gte(1.71e75))) {
+			display = display + "If every Cz. was a planck volume, then you can make " + player.points.div(new Decimal(1.71e75)) + " Hydrogen atoms."
+	}
+	if ((player.points.lte(2.13e88)) && (player.points.gte(1.18e84))) {
+			display = display + "If every Cz. was a planck volume, then you can make " + player.points.div(new Decimal(1.18e84)) + " protons."
+	}
 	return display
   },
 ]
