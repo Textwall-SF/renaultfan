@@ -3,18 +3,32 @@ addLayer("sy", {
     symbol: "M", // This appears on the layer's node. Default is the id with the first letter capitalized
     position: 0, // Horizontal position within a row. By default it uses the layer id and sorts in alphabetical order
     startData() { return {
-        unlocked: true,
+        unlocked: false,
 		points: new Decimal(0),
     }},
     color: "#ff1100",
-	  tooltip: "System Center",
+	tooltip: "System Center",
     row: 0, // Row the layer is in on the tree (0 is the first row)
-    layerShown(){return true},
+    layerShown(){
+        let visible = false
+        if (hasUpgrade('cz', 24) || player.sy.unlocked) visible = true
+       return visible
+    },
     milestones: {
         1: {
             requirementDescription: "1.00e9 Cz.",
             effectDescription: "x6 Cz, ^1.01 Cz.",
             done() { return player.points.gte(1e9) }
+        },
+		2: {
+            requirementDescription: "5.00e10 Cz.",
+            effectDescription: "Unlock new row of Cz. upgrades",
+            done() { return player.points.gte(5e10) }
+        },
+		3: {
+            requirementDescription: "1.00e13 Cz.",
+            effectDescription: "Unlock TCOH's Shop",
+            done() { return player.points.gte(5e13) }
         },
     }
 })
