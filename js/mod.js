@@ -56,6 +56,8 @@ function getPointGen() {
 	if (hasMilestone('sy', 1)) gain = gain.pow(1.2)
 	// Shop
 	if (hasUpgrade('ts', 11)) gain = gain.times(upgradeEffect('ts',11))
+	if (hasUpgrade('ts', 12)) gain = gain.times(16)
+	if (hasUpgrade('ts', 13)) gain = gain.pow(1.1)
 	return gain
 }
 
