@@ -12,11 +12,15 @@ let modInfo = {
 
 // Set your version in num and name
 let VERSION = {
-	num: "0.0.1",
-	name: "Cz. starting",
+	num: "0.0.2",
+	name: "SS1 - Shop and Milestones",
 }
 
 let changelog = `<h1>Changelog:</h1><br>
+    <h3>v0.0.2</h3><br>
+		- Added TCOH's shop and 4DC_H's system center.
+		- Added more upgrades.
+		- Fixed bugs.
 	<h3>v0.0.1 - Start of Cz.</h3><br>
 		- Added Cz.`
 
@@ -71,12 +75,12 @@ var displayThings = [
     display = ""
 	if ((player.points.lte(6.68e59)) && (player.points.gte(1e25))) {
 			display = display + "Stuck?"
-    },
+    }
 	if ((player.points.lte(2.37e62)) && (player.points.gte(6.68e59))) {
 			display = display + "If every Cz. was a planck volume, then you can make " + player.points.div(new Decimal(6.68e59))) + " protons."
-    },
+    }
 	return display
-  }
+  },
 ]
 
 // Determines when the game "ends"
