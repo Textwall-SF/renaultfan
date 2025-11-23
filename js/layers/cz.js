@@ -7,6 +7,7 @@ addLayer("cz", {
 		points: new Decimal(0),
     }},
     color: "#eeeeee",
+	tooltip: "Main Cz.",
     row: 0, // Row the layer is in on the tree (0 is the first row)
     layerShown(){return true},
     upgrades: {
@@ -76,6 +77,42 @@ addLayer("cz", {
         currencyDisplayName: "Cz.",
         currencyInternalName: "points",
 		unlocked() { return hasUpgrade("cz", 23); },
+	  },
+	  31: {
+        title: "The 2nd Ray",
+        description: "x5 Cz.",
+        cost: new Decimal(5e10),
+        currencyDisplayName: "Cz.",
+        currencyInternalName: "points",
+		unlocked() { return hasMilestone('sy', 2); },
+	  },
+	  32: {
+        title: "CataClysm",
+        description: "x2.001 Cz.",
+        cost: new Decimal(1.01e11),
+        currencyDisplayName: "Cz.",
+        currencyInternalName: "points",
+		unlocked() { return hasUpgrade("cz", 31); },
+	  },
+	  33: {
+        title: "Fourth Ray",
+        description: "Cz. gain?",
+		effect() {
+            return player.points.add(1).pow(0.1)
+        },
+        effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
+        cost: new Decimal(1e12),
+        currencyDisplayName: "Cz.",
+        currencyInternalName: "points",
+		unlocked() { return hasUpgrade("cz", 32); },
+	  },
+	  34: {
+        title: "A new feature???",
+        description: "Unlock Advanced shop upgrades.",
+        cost: new Decimal(1e15),
+        currencyDisplayName: "Cz.",
+        currencyInternalName: "points",
+		unlocked() { return hasUpgrade("cz", 33); },
 	  },
     }
 })
