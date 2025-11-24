@@ -57,12 +57,13 @@ function getPointGen() {
 	if (hasUpgrade('cz', 32)) gain = gain.times(2.001)
 	if (hasUpgrade('cz', 33)) gain = gain.times(upgradeEffect('cz',33))
 	// System Center
+	if (hasMilestone('sy', 0)) gain = gain.times(40)
 	if (hasMilestone('sy', 1)) gain = gain.pow(1.2)
 	// Shop
 	if (hasUpgrade('ts', 11)) gain = gain.times(upgradeEffect('ts',11))
 	if (hasUpgrade('ts', 21)) gain = gain.times(16)
 	if (hasUpgrade('ts', 22)) gain = gain.pow(1.1)
-	if (hasUpgrade('ts', 31)) gain = gain.times(40)
+	if (hasUpgrade('ts', 31)) gain = gain.times(100)
 	if (hasUpgrade('ts', 32)) gain = gain.pow(1.1)
 	return gain
 }
