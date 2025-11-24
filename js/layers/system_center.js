@@ -15,6 +15,11 @@ addLayer("sy", {
        return visible
     },
     milestones: {
+		0: {
+			requirementDescription: "50,000,000 Cz",
+			effectDescription: "x40 Cz.",
+			done() { return player.points.gte(5e7) }
+		},
         1: {
             requirementDescription: "1.00e9 Cz.",
             effectDescription: "^1.2 Cz.",
