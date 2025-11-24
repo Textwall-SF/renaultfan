@@ -40,6 +40,30 @@ addLayer("ts", {
 		currencyDisplayName: "Cz.",
         currencyInternalName: "points",
 		unlocked() { return hasUpgrade('cz',34); }
-	  }
+	  },
+	  31: {
+		title: "Enchanted Upgrade #1",
+		description: "x100 Cz.",
+		cost: new Decimal(1e21),
+		currencyDisplayName: "Cz.",
+        currencyInternalName: "points",
+		unlocked() { return hasMilestone('sy',4); }
+	  },
+	  32: {
+		title: "Enchanted Upgrade #2",
+		description: "^1.1 Cz.",
+		cost: new Decimal(2.22e22),
+		currencyDisplayName: "Cz.",
+        currencyInternalName: "points",
+		unlocked() { return hasMilestone('sy',4); }
+	  },
+	  33: {
+		title: "Enchanted Upgrade #3",
+		description: "Unlock Row 4 Cz. Upgrades.",
+		cost: new Decimal(1e25),
+		currencyDisplayName: "Cz.",
+        currencyInternalName: "points",
+		unlocked() { return hasMilestone('sy',4); }
+	  },
     }
 })
