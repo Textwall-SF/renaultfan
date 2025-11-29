@@ -1,8 +1,8 @@
 let modInfo = {
-	name: "cz. : the tree",
-	author: "ReanultFan Auth.",
-	pointsName: "craziness points",
-	modFiles: ["layers/cz.js", "layers/system_center.js", "layers/shop.js", "tree.js"],
+	name: "The_Tree",
+	author: "???",
+	pointsName: "points",
+	modFiles: ["layers/1.js", "tree.js"],
 
 	discordName: "",
 	discordLink: "",
@@ -12,16 +12,12 @@ let modInfo = {
 
 // Set your version in num and name
 let VERSION = {
-	num: "0.0.2",
-	name: "SS1 - Shop and Milestones",
+	num: "0.0.1",
+	name: "Start_1",
 }
 
 let changelog = `<h1>Changelog:</h1><br>
-    <h3>v0.0.2</h3><br>
-		- Added TCOH's shop and 4DC_H's system center.
-		- Added more upgrades.
-		- Fixed bugs.
-	<h3>v0.0.1 - Start of Cz.</h3><br>
+	<h3>v0.0.1</h3><br>
 		- Added Cz.`
 
 let winText = `Congratulations! You have reached the end and beaten this game, but for now...`
@@ -45,26 +41,6 @@ function getPointGen() {
 		return new Decimal(0)
 
 	let gain = new Decimal(0)
-	// Cz.
-	if (hasUpgrade('cz', 11)) gain = gain.add(1)
-	if (hasUpgrade('cz', 12)) gain = gain.add(2)
-	if (hasUpgrade('cz', 13)) gain = gain.add(6)
-	if (hasUpgrade('cz', 14)) gain = gain.times(3.5)
-	if (hasUpgrade('cz', 21)) gain = gain.times(upgradeEffect('cz',21))
-	if (hasUpgrade('cz', 22)) gain = gain.times(10)
-	if (hasUpgrade('cz', 23)) gain = gain.pow(1.05)
-	if (hasUpgrade('cz', 31)) gain = gain.times(5)
-	if (hasUpgrade('cz', 32)) gain = gain.times(2.001)
-	if (hasUpgrade('cz', 33)) gain = gain.times(upgradeEffect('cz',33))
-	// System Center
-	if (hasMilestone('sy', 0)) gain = gain.times(40)
-	if (hasMilestone('sy', 1)) gain = gain.pow(1.2)
-	// Shop
-	if (hasUpgrade('ts', 11)) gain = gain.times(upgradeEffect('ts',11))
-	if (hasUpgrade('ts', 21)) gain = gain.times(16)
-	if (hasUpgrade('ts', 22)) gain = gain.pow(1.1)
-	if (hasUpgrade('ts', 31)) gain = gain.times(100)
-	if (hasUpgrade('ts', 32)) gain = gain.pow(1.1)
 	return gain
 }
 
@@ -80,22 +56,43 @@ var displayThings = [
 			display = display + "Stuck?"
     }
 	if ((player.points.lte(2.37e62)) && (player.points.gte(6.68e59))) {
-			display = display + "If every Cz. was a planck volume, then you can make " + player.points.div(new Decimal(6.68e59)) + " protons."
+			display = display + "If every point was a planck volume, then you can make " + player.points.div(new Decimal(6.68e59)) + " protons."
     }
 	if ((player.points.lte(1.71e75)) && (player.points.gte(2.37e62))) {
-			display = display + "If every Cz. was a planck volume, then you can make " + player.points.div(new Decimal(2.37e62)) + " nuclei."
+			display = display + "If every point was a planck volume, then you can make " + player.points.div(new Decimal(2.37e62)) + " nuclei."
 	}
 	if ((player.points.lte(1.18e84)) && (player.points.gte(1.71e75))) {
-			display = display + "If every Cz. was a planck volume, then you can make " + player.points.div(new Decimal(1.71e75)) + " Hydrogen atoms."
+			display = display + "If every point was a planck volume, then you can make " + player.points.div(new Decimal(1.71e75)) + " Hydrogen atoms."
 	}
 	if ((player.points.lte(2.13e88)) && (player.points.gte(1.18e84))) {
-			display = display + "If every Cz. was a planck volume, then you can make " + player.points.div(new Decimal(1.18e84)) + " viruses."
+			display = display + "If every point was a planck volume, then you can make " + player.points.div(new Decimal(1.18e84)) + " viruses."
 	}
 	if ((player.points.lte(1.47e94)) && (player.points.gte(2.13e88))) {
-			display = display + "If every Cz. was a planck volume, then you can make " + player.points.div(new Decimal(2.13e88)) + " red blood cells."
+			display = display + "If every point was a planck volume, then you can make " + player.points.div(new Decimal(2.13e88)) + " red blood cells."
 	}
 	if ((player.points.lte(1.18e97)) && (player.points.gte(1.47e94))) {
-			display = display + "If every Cz. was a planck volume, then you can make " + player.points.div(new Decimal(1.47e94)) + " grains of sand."
+			display = display + "If every point was a planck volume, then you can make " + player.points.div(new Decimal(1.47e94)) + " grains of sand."
+	}
+	if ((player.points.lte("4.26e412")) && (player.points.gte("2.37e217"))) {
+			display = display + "If every point was a planck volume, then you can make " + player.points.div(new Decimal(2.37e217)) + " Dimensions."
+	}
+	if ((player.points.lte("1e1000")) && (player.points.gte("4.26e412"))) {
+			display = display + "If every point was a planck volume, then you can make " + player.points.div(new Decimal("4.26e412")) + " Infinity Dimensions."
+	}
+	if ((player.points.lte("1e2000")) && (player.points.gte("1e1000"))) {
+			display = display + "If every point was a planck volume, then you can make " + player.points.div(new Decimal("1.00e1000")) + " Timeverses. That's MTGFF content!"
+	}
+	if ((player.points.lte("1e10000")) && (player.points.gte("1e2000"))) {
+			display = display + "If every point was a planck volume, then you can make " + player.points.div(new Decimal("1.00e2000")) + " Timeverses+. That's MTGFF content!"
+	}
+	if ((player.points.lte("2.37e65104")) && (player.points.gte("1e10000"))) {
+			display = display + "If every point was a planck volume, then you can make " + player.points.div(new Decimal("1e10000")) + " Timeverses++. That's MTGFF content!"
+	}
+	if ((player.points.lte("1e100000")) && (player.points.gte("2.37e65104"))) {
+			display = display + "If every point was a planck volume, then you can make " + player.points.div(new Decimal("2.37e65104")) + " Time Dimensions."
+	}
+	if ((player.points.gte("1e100000")) && (player.points.lte("e70e9"))) {
+			display = display + "If you wrote 3 numbers per second, writing down your point amount will need " + formatTime(player.points.add(3).log10()) + "; to write down your point amount."
 	}
 	return display
   },
